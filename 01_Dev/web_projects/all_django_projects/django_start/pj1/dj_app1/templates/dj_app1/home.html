@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Days IT Challenge!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap_quartz.css' %}">
+</head>
+<body>
+    <header class="container">
+        <h1>100 Days IT Challenge!</h1>
+        <h3>From 0 to 100, real quick!</h3>
+    </header>
+    <main class="container">
+        Here are the 10 series:
+        <ul>
+            {% for series in all_series %}
+                <li>
+                    <a href="{% url 'series_detail' series.id %}">{{forloop.counter}} - {{ series.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    
+    </main>
+    <footer></footer>
+</body>
+</html>

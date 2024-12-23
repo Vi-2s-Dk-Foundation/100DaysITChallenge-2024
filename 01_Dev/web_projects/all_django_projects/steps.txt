@@ -1,0 +1,99 @@
+1. Set up Django Project Environment
+    (Create project folder and virtual environment)
+    - Create project directory, navigate inside
+    mkdir project_name
+    cd project_name
+
+    - Create virtual environment, activate it
+    python -m venv venv_name
+
+2. Set up Django Package in virtual environment
+    (Install Package and initialize module)
+
+    pip list
+
+    pip install django
+
+    pip list
+
+    django-admin startproject project_name
+
+    Result:
+
+    my_app/
+    ├── manage.py           - A command-line utility to interact with your Django project.
+    └── my_app/             - Directory contains the core settings and configuration for your project.
+        ├── __init__.py     - An empty file to mark the directory as a Python package.
+        ├── asgi.py         - Handles asynchronous requests and is used with ASGI-compatible servers.
+        ├── settings.py     - Contains project-wide settings: DB config, Installed apps etc
+        ├── urls.py         - Defines URL patterns (aka routes) for your project.
+        └── wsgi.py         - WSGI-compliant web server interface
+
+3. Setup Django App
+    (Create App & update settings)
+    (1st use of manage.py, and settings.py)
+
+    python manage.py startapp django_app_name
+
+    Result:
+
+    my_app/
+    ├── manage.py
+    └── my_app/
+        ├── __init__.py
+        ├── asgi.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+    └── my_first_app/       - App directory. You can create multiple apps within your project.
+        ├── __init__.py
+        ├── admin.py
+        ├── apps.py
+        ├── migrations/
+        ├── models.py
+        ├── tests.py
+        └── views.py
+    
+    Configure app settings, add the app to INSTALLED_APPS
+    Open the my_app/settings.py file and add your app to the INSTALLED_APPS list:
+
+    List of apps already added include:
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+
+
+    Result:
+    
+    INSTALLED_APPS = [
+    # ... other apps
+    'my_first_app',
+    ]
+
+4. Define Models, Views, URLs & Templates
+    - Create models (models.py: classes - OOP)
+    - Run migrations (Create, then apply migration files) 
+        python manage.py makemigrations
+        python manage.py migrate
+    - Define views (views.py: functions)
+    - Configure URLs (urls.py)
+    - Create templates (Folders: templates/app_name/template_name.html)
+
+5. Run Dev Server
+    - Start Server 
+        python manage.py runserver
+    - View in browser
+        http://127.0.0.1:8000/
+
+Recommended Tips:
+    - Django's built-in admin interface to manage your models
+    - CSS framework like Bootstrap or Tailwind CSS for styling
+    - Version control system like Git to track your project's changes
+
+    Advanced Tips:
+        - Django's ORM for database interactions
+        - Django's templating engine for creating dynamic web pages
+

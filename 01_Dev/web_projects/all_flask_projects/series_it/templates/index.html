@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+100 Days IT Challenge!
+{% endblock %}
+
+{% block content %}
+<section class="container top">
+    <h1>100 Days IT Challenge</h1>
+    <h3>Welcome!</h3>
+    <p>
+        Enjoy 100 days of fun with IT... from 0 to 100... <strong>TOGETHER!</strong>
+    </p>
+
+</section>
+<section class="container middle">
+    <!-- Series Cards -->
+    <div class="row">
+        {% for i in range(1,11) %}
+        <div class="col-md-5 card mb-3">
+            <h3 class="card-header">Series {{i}} : {{all_series[i-1]['Articles'][0]['Series_Name']}}</h3>
+            <div class="card-body">
+              <h5 class="card-title">{{all_series[i-1]['Articles'][0]['Series_Desc']}}</h5>
+              <h6 class="card-subtitle text-muted">{{all_series[i-1]['Articles'][0]['Series_Summary']}}</h6>
+            </div>
+            <a href="/series/{{i}}">
+                <img src="/static/images/series{{i}}.jpg" alt="Series {{i}} Image">
+            </a>
+            <div class="card-body">
+                <p class="card-text">Series {{i}}: {{all_series[i-1]['Articles'][0]['Series_Name']}}</p>
+                <p class="card-text">Some of the sessions in series {{i}} include:</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Session # {{all_series[i-1]['Articles'][0]['Session_Number']}}: {{all_series[i-1]['Articles'][0]['Session_Name']}}</li>
+              <li class="list-group-item">Session # {{all_series[i-1]['Articles'][2]['Session_Number']}}: {{all_series[i-1]['Articles'][2]['Session_Name']}}</li>
+              <li class="list-group-item">Session # {{all_series[i-1]['Articles'][4]['Session_Number']}}: {{all_series[i-1]['Articles'][4]['Session_Name']}}</li>
+            </ul>
+            <div class="card-body">
+              <a href="/series/{{i}}" class="card-link">
+                <button type="button" class="btn btn-info btn-sm">Learn more...</button>
+            </a>
+              <a href="/series/{{i}}" class="card-link">
+                <button type="button" class="btn btn-success btn-sm">BUY NOW!</button>
+              </a>
+            </div>
+            <div class="card-footer text-muted">
+              Series {{i}} Duration: 
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        {% endfor %}
+    </div>
+</section>
+<section class="container bottom">
+
+</section>
+{% endblock %}

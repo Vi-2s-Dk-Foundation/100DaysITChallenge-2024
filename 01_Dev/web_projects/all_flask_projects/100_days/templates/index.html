@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}
+100 Days IT Challenge
+{% endblock %}
+
+{% block content %}
+
+
+<main class="container-fluid">
+    <section class="top-section">
+        <h1>100 Days IT Challenge</h1>
+        <h3>Welcome!</h3>
+        <p>Enjoy all 10 series at your pace...</p>
+
+    </section>
+    <section class="container middle">
+
+        <div class="row">
+                {% for i in range(1,11)%}
+
+                <div class="col-md-5 card mb-3">
+                    <h3 class="card-header">Series {{i}} - {{ all_series[i-1]["Articles"][0]["Series_Name"] }}</h3>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ all_series[i-1]["Articles"][0]["Series_Desc"] }} </h5>
+                        <h6 class="card-subtitle text-muted">Series {{i}} {{ all_series[i-1]["Articles"][0]["Series_Summary"] }}</h6>
+                    </div>
+                    <img src="/static/images/series{{i}}.jpg" alt="Series {{i}} Image">
+                    <div class="card-body">
+                        <p class="card-text">Series {{i}}: {{ all_series[i-1]["Articles"][0]["Series_Name"] }}</p>
+                        <p class="card-text">Some Sessions in Series {{i}}.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Session #1 - {{ all_series[i-1]["Articles"][0]["Session_Name"] }}</li>
+                        <li class="list-group-item">Session #3 - {{ all_series[i-1]["Articles"][2]["Session_Name"] }}</li>
+                        <li class="list-group-item">Session #5 - {{ all_series[i-1]["Articles"][4]["Session_Name"] }}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="/series/{{i}}" class="card-link">Learn More</a>
+                        <a href="/series/{{i}}" class="card-link"><strong>BUY NOW</strong></a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Number of Session in Series {{i}}: 
+                        <br>
+                        Duration of Series {{i}}: 
+
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+
+                {% endfor %}
+        </div>
+
+    </section>
+    <section class="bottom-section">
+
+    </section>
+</main>
+{% endblock %}

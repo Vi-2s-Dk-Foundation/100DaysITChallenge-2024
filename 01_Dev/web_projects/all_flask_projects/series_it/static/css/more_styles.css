@@ -1,0 +1,39 @@
+
+.social-media-icons {
+    width: 2%;
+  }
+  
+  #scrollToTop {
+    transition: 0.3s ease-out; /* Adjust duration and easing as needed */
+  }
+  
+  img {
+    border-radius: 20%;
+  }
+  
+  #logo-image {
+    width: 5%;
+    padding: 10px;
+  }
+  
+  
+  footer,
+  footer div {
+    display: block;
+    text-align: center;
+  }
+
+
+  header {
+    margin: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+  }  
+  
+main {
+  margin: 40px;
+  margin-top: 150px;
+}

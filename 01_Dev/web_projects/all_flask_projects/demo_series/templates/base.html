@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/bootstrap_quartz.css">
+    <link rel="stylesheet" href="/static/css/new_style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navigation goes here -->
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">100 Days IT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/">Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+
+                        {% for i in range(1,11) %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/series/{{i}}">Series {{i}}</a>
+                        </li>
+                        {% endfor %}
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">All Series</a>
+                            <div class="dropdown-menu">
+                               
+                                {% for i in range(1,11) %}
+                                <a class="dropdown-item" href="/series/{{i}}">Series {{ i }}</a>
+                                {% endfor %}
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/">All Series</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input id="search_input" class="form-control me-sm-2" type="search" placeholder="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Content for children inheriting the base.html -->
+     {% block content %}
+
+     {% endblock %}
+
+    <hr>
+    <footer>
+        <div id="footer-links">
+            <a href="http://LinkedIn.com/in/dkvitus" target="_blank" rel="noopener noreferrer">
+                <img class="social-media-icons" src="/static/images/li.png" alt="Facebook icon"></a>
+            <a href="http://Facebook.com/Vi2sDk" target="_blank" rel="noopener noreferrer">
+                <img class="social-media-icons" src="/static/images/fb.png" alt="Facebook icon"></a>
+            <a href="https://www.youtube.com/@Vi2sDk?sub_confirmation=1" target="_blank" rel="noopener noreferrer">
+                <img class="social-media-icons" src="/static/images/yt.png" alt="Youtube icon"></a>
+        </div>
+        &COPY; 2024 - Vi-2s-Dk Foundation
+        <div>
+            <a href="#Top" id="scrollToTop">Back to top</a>
+        </div>
+    </footer>
+    <!-- Need js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>     
+</body>
+
+</html>

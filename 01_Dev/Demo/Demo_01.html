@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Demo</title>
+    <link rel="stylesheet" href="/01_Dev/TheSeries/style.css">
+    <!-- 
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js">
+    </script>
+    <base href=""> -->
+</head>
+<body>
+    <header>
+        <!-- Common elements include: 
+            image logo, navigation menu, search bar, 
+            and contact information. -->
+        <nav>
+            <img class="logo" src="images/html.png" alt="Our Logo">
+            <div class="company-info">
+            <h3 id="demo">HTML Demo</h3>
+            <p>You already know!</p>
+            </div> 
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <!-- You can also insert Hero component or Jumbotron --> 
+    </header>
+    <main>
+        <section>
+            <br>
+            <br>
+            <br>
+            <h1>
+                Hyper-Text Markup Language (HTML)
+            </h1>
+
+            <img id="globe-pic" src="images/favicon.ico" alt="Globe">
+            <article>
+                <h2>HTML - Content and Structure</h2>
+                <p>
+                    HTML, which stands for HyperText Markup Language, is the standard language used to create and design web pages. <br>
+                    It's not a programming language like JavaScript; instead, it's a markup language that defines the structure and layout of a web page.
+                </p>
+                <p>
+                    Here's a basic breakdown of how HTML works:
+                </p>
+                    <ul>
+                        <li>
+                            <strong>Elements and Tags: <br></strong> 
+                            HTML uses 'elements' to define different parts of a web page. Each element is enclosed in 'tags', which are written in angle brackets. 
+                            <br>
+                            For example, &lt;p&gt; is the opening tag for a paragraph and &lt;/p&gt; is the closing tag. The content goes between these tags."
+                        </li>
+                        <li>
+                            <strong>Structure of a Document:  <br></strong>
+                            An HTML document has a defined structure with a head (&lt;head&gt;) and a body (&lt;body&gt;).  <br>
+                            The head contains meta-information like the title of the page, while the body contains the actual content that's visible to users.
+                        </li>
+                        <li>
+                            <strong>Hierarchy and Nesting:  <br></strong>
+                            Elements can be nested within each other to create a hierarchy.  <br>
+                            This nesting helps in organizing the content and defines parent-child relationships between elements.
+                        </li>
+                        <li>
+                            <strong>Attributes:  <br></strong>
+                            Elements can have attributes that provide additional information about them. <br>
+                            For example, the href attribute in an anchor (link) element (&lt;a&gt;) specifies the URL the link goes to.
+                        </li>
+                        <li>
+                            <strong>Common Elements:  <br>
+                            </strong>
+                            There are about 115 standard HTML elements. <br>
+                            Some common HTML elements can be grouped by the functions, which include:
+                            <br>
+                            <br>
+
+                            <table>
+                                <tr>
+                                    <th>Element Function</th>
+                                    <th>Description</th>
+                                    <th>Common Elements</th>
+                                </tr>
+                                <tr>
+                                    <td>Root</td>
+                                    <td>Includes the main root - top level element of the html document <br>
+                                        and sectioning root - the content of the html document.</td>
+                                    <td><ol>
+                                        <li>html</li>
+                                        <li>body</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Document Metadata</td>
+                                    <td>Contains info about the page to help software <br> (search engines, browsers, etc.) use and render the page. </td>
+                                    <td><ol>
+                                        <li class="column">head</li>
+                                        <li class="column">base</li>
+                                        <li class="column">meta</li>
+                                        <li class="column">link</li>
+                                        <li class="column">style</li>
+                                        <li class="column">title</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Content Sectioning</td>
+                                    <td>Allows you to organize the document content into logical pieces. <br>
+                                        Used to create a broad outline for your page content</td>
+                                    <td><ol>
+                                        <li class="column">header</li>
+                                        <li class="column">main</li>
+                                        <li class="column">footer</li>
+                                        <li class="column">hgroup</li>
+                                        <li class="column">nav</li>
+                                        <li class="column">address</li>
+                                        <li class="column">search</li>
+                                        <li class="column">section</li>
+                                        <li class="column">article</li>
+                                        <li class="column">aside</li>
+                                        <li class="column">h1, h2, h3, h4, h5 & h6</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Text Content</td>
+                                    <td>Used to organize blocks or sections of content placed within the body. <br>
+                                        Important for <strong> accessibility </strong> and <strong>SEO</strong>, <br> these elements identify the purpose or structure of that content.
+                                        .</td>
+                                    <td><ol>
+                                        <li class="column">p</li>
+                                        <li class="column">pre</li>
+                                        <li class="column">hr</li>
+                                        <li class="column">div</li>
+                                        <li class="column">blockquote</li>
+                                        <li class="column">ol</li>
+                                        <li class="column">ul</li>
+                                        <li class="column">li</li>
+                                        <li class="column">dl</li>
+                                        <li class="column">dt</li>
+                                        <li class="column">dd</li>
+                                        <li class="column">figure</li>
+                                        <li class="column">figcaption</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Inline Semantics</td>
+                                    <td>Used to define the meaning, structure, or style of <br>
+                                        a word, line, or any arbitrary piece of text.</td>
+                                    <td><ol>
+                                        <li class="column">a</li>
+                                        <li class="column">b</li>
+                                        <li class="column">i</li>
+                                        <li class="column">q</li>
+                                        <li class="column">s</li>
+                                        <li class="column">u</li>
+                                        <li class="column">abbr</li>
+                                        <li class="column">br</li>
+                                        <li class="column">span</li>
+                                        <li class="column">cite</li>
+                                        <li class="column">code, kbd, samp</li>
+                                        <li class="column">data</li>
+                                        <li class="column">em</li>
+                                        <li class="column">mark</li>
+                                        <li class="column">ruby, rt, rp</li>
+                                        <li class="column">small</li>
+                                        <li class="column">strong</li>
+                                        <li class="column">sub</li>
+                                        <li class="column">sup</li>
+                                        <li class="column">time</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Image & Multimedia</td>
+                                    <td>HTML supports various multimedia resources <br>
+                                        such as images, audio, and video.
+                                    </td>
+                                    <td><ol>
+                                        <li class="column">area</li>
+                                        <li class="column">audio</li>
+                                        <li class="column">image</li>
+                                        <li class="column">map</li>
+                                        <li class="column">track</li>
+                                        <li class="column">video</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Embedded Content</td>
+                                    <td>HTML can include a variety of other content, <br>
+                                        even if it's not always easy to interact with.
+                                    </td>
+                                    <td><ol>
+                                        <li class="column">embed</li>
+                                        <li class="column">iframe</li>
+                                        <li class="column">object</li>
+                                        <li class="column">picture</li>
+                                        <li class="column">portal</li>
+                                        <li class="column">source</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Table Content</td>
+                                    <td>Used to create and handle tabular data. <br>
+                                        Use tables only for presenting data that is organized in rows and columns. <br>
+                                        Avoid using tables for layout purposes.
+                                    </td>
+                                    <td><ol>
+                                        <li class="column">caption</li>
+                                        <li class="column">colgroup</li>
+                                        <li class="column">col</li>
+                                        <li class="column">table</li>
+                                        <li class="column">thead</li>
+                                        <li class="column">tbody</li>
+                                        <li class="column">tfoot</li>
+                                        <li class="column">tr</li>
+                                        <li class="column">th</li>
+                                        <li class="column">td</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Forms</td>
+                                    <td>HTML provides several elements that can be used together to create forms <br>
+                                        that the user can fill out and submit to the website or application.</td>
+                                    <td><ol>
+                                        <li class="column">form</li>
+                                        <li class="column">fieldset</li>
+                                        <li class="column">legend</li>
+                                        <li class="column">datalist</li>
+                                        <li class="column">label</li>
+                                        <li class="column">input</li>
+                                        <li class="column">output</li>
+                                        <li class="column">button</li>
+                                        <li class="column">textarea</li>
+                                        <li class="column">select</li>
+                                        <li class="column">optgroup</li>
+                                        <li class="column">option</li>
+                                        <li class="column">meter</li>
+                                        <li class="column">progress</li>
+                                    </ol></td>
+                                </tr>
+                                <tr>
+                                    <td>Interactive Content</td>
+                                    <td>Elements that help to create interactive user interface objects.
+                                    </td>
+                                    <td><ol>
+                                        <li>dialog</li>
+                                        <li>details</li>
+                                        <li>summary</li>
+                                    </ol></td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                    In addition to these elements, there are <strong> 22 obsolete elements</strong> that have been deprecated. <br> 
+                    Avoid using them and remove them from all existing projects. They include:
+                    <dl>
+                        <dt>acronym</dt>
+                        <dd>Warning: Don't use this element. Use the &lt; abbr &gt; element instead.
+                        </dd>
+                        <dt>big</dt>
+                        <dd>Use the CSS  <u> font-size</u> property to adjust the font size.
+                        </dd>
+                        <dt>center</dt>
+                        <dd>Instead, use the CSS <u>text-align </u> property, which can be applied to the &lt;div&gt; element or to an individual &lt;p&gt;. <br>
+                            For centering blocks, use other CSS properties like margin-left and margin-right and set them to auto (or set margin to 0 auto).
+                        </dd>
+                        <dt><s>
+                            content
+                        </s></dt>
+                        <dd></dd>
+                        <dt>dir</dt>
+                        <dd>Do not use this obsolete element; <br>
+                            instead, you should use the &lt; ul &gt; element for lists, including lists of files.
+                        </dd>
+                        <dt>font</dt>
+                        <dd>Warning: Do not use this element. <br>
+                            Use the CSS Fonts properties to style text.
+                        </dd>
+                        <dt>frame</dt>
+                        <dd>Instead of the &lt;frame&gt; element, &lt;iframe&gt; may be preferred.
+                        </dd>
+                        <dt>frameset</dt>
+                        <dd>Note: Because the use of frames is now discouraged <br>
+                             in favor of using &lt;iframe&gt;, this element is not typically used by modern websites.
+                        </dd>
+                        <dt><s>
+                            image
+                        </s></dt>
+                        <dd></dd>
+                        <dt>marquee</dt>
+                        <dd>Deprecated: This feature is no longer recommended. <br> 
+                            Though some browsers might still support it, be aware that this feature may cease to work at any time.                        </dd>
+                        <dt><s>
+                            menuitem
+                        </s></dt>
+                        <dd></dd>
+                        <dt>nobr</dt>
+                        <dd>Warning: Although this element is widely supported, it was never standard HTML, so you shouldn't use it. <br> 
+                            Instead, use the CSS property <u> white-space </u> </dd>
+                        <dt>noembed</dt>
+                        <dd>Note: While this element currently still works in many browsers, it is obsolete and should not be used. <br> 
+                            Use  &lt; object &gt; instead, with fallback content between the opening and closing tags of the element.
+
+                        </dd>
+                        <dt>noframes</dt>
+                        <dd>Note: This element is obsolete and shouldn't be used, since the &lt; frame &gt; and &lt; frameset &gt; elements are also obsolete. <br> 
+                            When frames are needed at all, they should be presented using the &lt; iframe &gt; element.
+
+                        </dd>
+                        <dt>param</dt>
+                        <dd>Note: Use the &lt;object&gt; element with a data attribute <br>
+                             to set the URL of an external resource.
+                        </dd>
+                        <dt>plaintext</dt>
+                        <dd>Instead of &lt;plaintext&gt;, use the &lt;pre&gt; element or, if semantically accurate (such as for inline text), <br> 
+                            the &lt;code&gt; element. Escape any &lt;, &gt; and & characters, <br> 
+                            to prevent browsers inadvertently parsing content the element content as HTML.
+                        </dd>
+                        <dt>rb</dt>
+                        <dd>Deprecated: This feature is no longer recommended. <br> 
+                            Though some browsers might still support it, be aware that this feature may cease to work at any time.                        
+                        </dd>                        
+                        <dt>rtc</dt>
+                        <dd>Deprecated: This feature is no longer recommended. <br> 
+                            Though some browsers might still support it, be aware that this feature may cease to work at any time.
+                        </dd>
+                        <dt><s>
+                            shadow
+                        </s></dt>
+                        <dd></dd>
+                        <dt>strike</dt>
+                        <dd>Warning: This element is deprecated in HTML 4 and XHTML 1, and obsoleted in the HTML Living Standard. <br> 
+                            If semantically appropriate, i.e., if it represents deleted content, use &lt;del&gt; instead. In all other cases use &lt;s&gt;.
+                        </dd>
+                        <dt>tt</dt>
+                        <dd>Note: If none of the semantic elements are appropriate for your use case <br> 
+                            (for example, if you need to show some content in a non-proportional font), <br> 
+                            you should consider using the &lt; span &gt; element, styling it as desired using CSS. <br> 
+                            The <u>font-family</u>  property is a good place to start.
+                        </dd>
+                        <dt>xmp</dt>
+                        <dd>Note: Do not use this element. <br>
+                            It has been deprecated since HTML3.2 and was not implemented in a consistent way. <br> 
+                            It was completely removed from current HTML. <br>
+                            Use the &lt;pre&gt; element or, if semantically adequate, the &lt;code&gt; element instead. <br> 
+                            Note that you will need to escape the '&lt;' character as '& lt;' and the '&' character as '& amp;' to make sure they are not interpreted as markup. <br>
+                            A monospaced font can also be obtained on any element, by applying an adequate CSS style <br> using monospace as the generic-font value for the font-family property.
+                            </dd>
+                    </dl>
+            </article>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <!-- Includes copyright information, contact details, and links to social media profiles.  -->
+        <address>
+            Cite Sic, Limbe.
+            South West Region <br>
+            Cameroon - West/Central Africa
+        </address>
+        <div class="copyright">
+            &COPY; Copyright 2024 <br>
+            All Rights Reserved - Vi-2s-Dk
+        </div>
+        <div class="social-media-links">            
+            <ul type="none" class="footer-links">
+                Connect With Us
+                <li><a href="https://www.linkedin.com/in/dkvitus" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@Vi2sDk" target="_blank">YouTube</a></li>
+                <li><a href="https://www.facebook.com/Vi2sDk/" target="_blank">Facebook</a></li>
+                <li><a href="/Vi-2s-Dk/WebDev/HW/Homework1.html">Resume</a></li>
+            </ul>
+            <ul type="none" class="footer-links"> 
+                HTML Demo 
+                <li><a href="html_demo_01-Structure.html" > Structure</a></li>
+                <li><a href="html_demo_02-Metadata.html" > Metadata</a></li>
+                <li><a href="html_demo_03-Content.html" > Content</a></li>
+                <li><a href="Demo_01.html" > Elements</a></li>
+            </ul>
+
+        </div>
+        
+    </footer>
+</body>
+</html>

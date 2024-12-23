@@ -1,0 +1,226 @@
+/*
+0. Inline, Internal or External
+
+1. Selecting all elements - Universal
+
+2. Box Model
+    - Padding, margin, border
+    - Left, top, right, bottom
+    - Shortcut
+    - View in Browser DevTools
+
+3. Backgrounds
+    - background-color
+    - Images
+    - Gradients
+    - Shortcut
+
+4. Texts (lists, links, etc)
+    - Font family, weight, style, size
+    - Color
+    - Text-align
+    - Background
+
+5. Images & Videos
+    - width/height, size
+    -
+
+6. Tables 
+    - Border, width, height, margin, padding
+
+7. Layout 
+    - Display (inline, block, flex...)
+    - Float (left, right)
+    - Position (Abs, rel, static, fixed)
+
+8. Responsive CSS
+    - Media queries
+    - Preview with DevTools
+
+9. Interactions
+    - Animations (name, duration, function)
+    - Transitions (property, duration, function)
+
+10. Cascade
+    - Specificity
+    - Inheritance
+
+*/
+
+body {
+  background-color: lightgreen;
+  color: navy;
+  font-family: "Courier New", Courier, monospace;
+}
+
+header {
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+main {
+  margin: 40px;
+  margin-top: 150px;
+}
+
+footer,
+footer div {
+  display: block;
+  text-align: center;
+}
+
+iframe,
+details,
+ol,
+h2,
+h4,
+p {
+  margin: 30px;
+}
+
+#logo-image {
+  width: 5%;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(30, 163, 74, 1);
+  margin: 0px;
+  position: sticky;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content:space-between;
+  list-style:none;
+}
+
+nav a {
+  text-decoration: none;
+  color: navy;
+  font-size: larger;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  font-size: x-large;
+  background-color: green;
+  border-radius: 15%;
+}
+
+nav li {
+  margin: 0;
+  padding: 40px;
+}
+
+button {
+  background-color: green;
+  border-radius: 20%;
+  margin: 15px;
+}
+
+button a {
+  color: yellow;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  border-radius: 20%;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+th,
+td {
+  border: salmon solid 1px;
+  text-align: center;
+}
+
+th {
+  color: black;
+  font-size: larger;
+  font-weight: bolder;
+  background-color: silver;
+}
+
+/* Styling the ongoing series section*/
+#in-progress {
+  background-color: rgba(250, 186, 47, 0.377);
+  /* background-image: url(/01_Dev/Demo/images/html-css-js.png); */
+  background-blend-mode: soft-light;
+  filter: opacity(70%);
+}
+
+/* Styling the upcoming series section*/
+#not-started {
+  background-color: limegreen;
+  background-image: url(/01_Dev/Demo/images/HowMuchYouLearn.jpg);
+  background-position: bottom right;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#web-dev-image {
+  width: 20%;
+  float: right;
+  padding: 50px;
+}
+
+.social-media-icons {
+  width: 2%;
+}
+
+#scrollToTop {
+  transition: 0.3s ease-out; /* Adjust duration and easing as needed */
+}
+
+/* Using Flexbox for Series 1: Getting into IT */
+#flex-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+#flex-column {
+  flex: 1;
+  padding: 10px;
+}
+
+/* Using Gridbox for Series 2: Getting IT Done */
+#grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 3fr;
+  gap: 1rem;
+}
+
+iframe {
+  border-radius: 20px; /* Search and replace multiple occurences with comma separated elements*/
+}
+
+/* Styling highlight aka mark tag*/
+#mark-upcoming {
+  background-color: gray;
+}
+#mark-ongoing {
+  background-color: yellow;
+}
+#mark-completed {
+  background-color: orange;
+}

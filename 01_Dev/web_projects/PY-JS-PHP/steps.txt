@@ -1,0 +1,39 @@
+1. Environment Setup
+    - Go to Python.org and install python (comes with pip and builtin tools)
+    - Go to Nodejs.org and install Node (comes with npm)
+    - Go to PHP.net and install PHP
+
+2. Test the environment
+    - Use --version,
+        - Python: 
+            - check python and pip versions
+            - use pip to install flask or django
+        - Node.js:  
+            - check node and npm versions
+            - use npm to initialize project & install express
+        - PHP:
+            - check version
+            - use localhost or setup XAMPP
+
+3. Create a simple app
+    - Use Development Server
+        - Python: simple flask app
+        - JavaScript: simple Node.js app
+        - PHP: simple PHP script 
+    
+4. Coding Anatomy
+    - Example of Basic syntax
+        - Python script: print("Hello, world!")
+        - JavaScript: console.log("Hello, world!");
+        - PHP script: <?php echo "Hello, world!"; ?>
+    Common elements:
+        - Comments
+        - Variables
+        - Data Types
+        - Control Flow (if/else, loops)
+    Functions:
+        - Definition
+        - Call
+    OOP:
+        - Classes
+        - Objects

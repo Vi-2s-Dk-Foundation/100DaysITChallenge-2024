@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ series.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap_quartz.css' %}">
+</head>
+<body class="container">
+    <h1>{{ series.name }}</h1>
+    <p>{{ series.description }}</p>
+
+    <h2>Sessions</h2>
+    <ul>
+        {% for session in sessions %}
+            <li>
+                <h4>{{ session.name }}</h4>
+                <p>{{ session.description }}</p>
+                <a href="{{ session.url }}" target="_blank">Link to Session</a>
+                <p>Duration: {{ session.duration }}</p>
+                <div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1jBLtyHYieM?si=bybwElCppRPQabWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

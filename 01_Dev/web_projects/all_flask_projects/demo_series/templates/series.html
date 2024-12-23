@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}
+Series {{ series_info.Series }}
+{% endblock %}
+
+
+{% block content %}
+<!-- No navigation? -->
+<!-- Let us use  base template instead of makiinf modifications multiple times for each page! -->
+<main>
+    <section class="container top-section">
+        <h1>Series {{ series_info.Series }}: 
+            {{ series_info["Articles"][0]["Series_Name"] }}
+        </h1>
+        <h3>
+            {{ series_info["Articles"][0]["Series_Desc"] }}
+        </h3>
+        <p class="lead">
+            {{ series_info["Articles"][0]["Series_Summary"] }}
+        </p>
+
+    </section>
+    
+    <section class="container mid-section">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Collapsible Table of Sessions for Series  {{ series_info.Series }}
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                <div class="accordion-body">
+                    <!-- Make it collapsible, not to take up too much space - Accordion! -->
+                    <!-- Add Bootstrap Table of all sessions/articles -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Session Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Synopsis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in  series_info["Articles"]%}              
+                        <tr>
+                            <th scope="row">{{article["Session_Number"]}}</th>
+                            <td>{{article["Session_Name"]}}</td>
+                            <td>{{article["Session_Desc"]}}</td>
+                            <td>{{article["Session_Summary"]}}</td>
+                        </tr>
+                        {% endfor %}
+                        
+                        </tbody>
+                    </table>                  
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section class="container bottom-section">
+        <!-- Add details for each Session -->
+        {% for article in  series_info["Articles"]%}  
+        
+        <div class="card mb-3">
+            <h3 class="card-header">{{article["Session_Number"]}}: {{article["Session_Name"]}}</h3>
+            <div class="card-body">
+              <h5 class="card-title">{{article["Session_Desc"]}}</h5>
+              <h6 class="card-subtitle text-muted">{{article["Session_Summary"]}}</h6>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+
+                <div class="col-md-5">
+                    <!-- embed video -->
+                <iframe width="560" height="315" src="{{article['Session_url']}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-5">
+                    <div class="card border-primary mb-3" style="max-width: 20rem;">
+                        <div class="card-header">Details about {{article["Session_Name"]}}</div>
+                        <div class="card-body">
+                          <h4 class="card-title">{{article["Session_Desc"]}}</h4>
+                          <p class="card-text">More later...</p>
+                        </div>
+                      </div>
+                      
+                </div>
+
+
+            </div>
+            <div class="card-body">
+              <p class="card-text">Something to say???</p>
+            </div>
+            <div class="card-footer text-muted">
+              Kindly Like, Comment & Share!
+            </div>
+          </div>
+
+        {% endfor %}
+    </section>
+</main>
+
+{% endblock %}

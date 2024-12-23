@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+Series {{ series_info.Series }} - {{series_info.Articles[0]['Series_Name']}}
+{% endblock %}
+
+{% block content %}
+<section class="container top">
+  <h1>Series {{ series_info.Series }}</h1>
+  <h3>Series Title: {{series_info.Articles[0]['Series_Name']}}</h3>
+  <p class="lead">{{ series_info.Articles[0]['Series_Desc']}}</p>
+  <p class="lead">{{ series_info.Articles[0]['Series_Summary']}}</p>
+  <p>Link to Series: [Loading...]</p>
+</section>
+
+<section class="container middle">
+  <h2>Series {{ series_info.Series }} Sessions include</h2>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="false" aria-controls="collapseOne">
+          Collapsible Sessions Table
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample" style="">
+        <div class="accordion-body">
+
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Session Name</th>
+                <th scope="col">Session Description</th>
+                <th scope="col">Session Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for article in series_info['Articles'] %}
+              <tr class="table-default">
+                <th scope="row">{{ article['Session_Number'] }}</th>
+                <td>{{ article['Session_Name'] }}</td>
+                <td>{{ article['Session_Desc'] }}</td>
+                <td>{{ article['Session_Summary'] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+<hr><br>
+<section class="container bottom">
+
+  <div class="row">
+    <div class="col-md-12">
+      {% for article in series_info['Articles'] %}
+
+      <div class="card border-dark mb-10">
+        <div class="card-header">{{ article['Session_Number'] }} - {{ article['Session_Name'] }}</div>
+        <div class="card-body">
+          <h4 class="card-title">{{ article['Session_Desc'] }}</h4>
+          <p class="card-text">{{ article['Session_Summary'] }}</p>
+          <br><br>
+          <div class="row">
+            <div class="col-md-8">
+            <iframe width="100%" height="500" src="{{ article['Session_url'] }}" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="col-md-4">
+            <div class="container">
+              <div class="card border-secondary mb-6" style="float: right; width: 100%;">
+                <div class="card-header">Video Insights</div>
+                <div class="card-body">
+                  <h4 class="card-title">Video Description</h4>
+                  <p class="card-text">Summary, Tags & other details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
+{% endblock %}

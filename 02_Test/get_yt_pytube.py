@@ -9,13 +9,13 @@ yt = YouTube('http://youtube.com/watch?v=2lAe1cqCOXo')
 #print(yt.title)
 print(yt.thumbnail_url)
 
-videos = p.videos
+#videos = p.videos
 
 videos = []
 for video_url in p.video_urls:
     yt = YouTube(video_url)
-    print(type(yt))
-    print(yt)
+    #print(type(yt))
+    #print(yt)
     video_info = {
 #        'title': yt.title,
         'description': yt.description,

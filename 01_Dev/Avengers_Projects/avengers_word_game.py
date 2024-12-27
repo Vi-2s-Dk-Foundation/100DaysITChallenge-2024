@@ -56,14 +56,6 @@ while still_playing:
     guess = input("Guess a letter:\n").upper() # Convert input to uppercase
     guesses += guess
     guess_number += 1
-
-    # Check if all letters are guessed
-    if all(letter in guesses for letter in word):
-        print(f"Congratulations! You guessed the Avenger: {word}")
-        print(f"# of Wrong Guesses: {bad_guess} ")
-        if bad_guess == 0:
-            print("FLAWLESS VICTORY!!!")
-        break
     
     # Check is guess is good or bad
     if guess not in word:
@@ -82,8 +74,16 @@ while still_playing:
             word_display += letter + " "
         else:
             word_display += "_ "
-    
     print(word_display)
+
+    # Check if all letters are guessed
+    if all(letter in guesses for letter in word):
+        print(f"Congratulations! You guessed the Avenger: {word}")
+        print(f"# of Wrong Guesses: {bad_guess} ")
+        if bad_guess == 0:
+            print("FLAWLESS VICTORY!!!")
+        break
+
     if bad_guess >=5:
         print("You have 5 Wrong Guesses!!!")
         still_playing = False

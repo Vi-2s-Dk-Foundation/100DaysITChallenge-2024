@@ -5,13 +5,15 @@ def extract_center_lines(pdf_path):
         with open(pdf_path, 'rb') as pdf_file:
             pdf_reader = PyPDF2.PdfReader(pdf_file)
             all_lines = []
+            all_lines1 = []
             for page in pdf_reader.pages:
                 text = page.extract_text()
                 lines = text.splitlines()
                 for line in lines:
-                    if line.lower().startswith("centre no"):  # Case-insensitive check
-                        all_lines.append(line.strip())  # Add stripped line
-            return all_lines
+                    all_lines1.append(line.strip())  # Add stripped line - ALL
+                    if line.lower().startswith("centre no :"):  # Case-insensitive check
+                        all_lines.append(line.strip())  # Add stripped line - Centers ONLY
+            return all_lines, all_lines1
 
     except FileNotFoundError:
         return "File not found."
@@ -20,16 +22,19 @@ def extract_center_lines(pdf_path):
     except Exception as e:
         return f"An unexpected error occurred: {e}"
 
-center_lines = extract_center_lines("2024-GCE-Ordinary-Level-Results.pdf")
+center_lines, records = extract_center_lines("2024-GCE-Ordinary-Level-Results.pdf")
+
 
 if isinstance(center_lines, list):
     if center_lines: #check if the list is not empty
-        print("Lines starting with 'center':")
-        for line in center_lines:
-            print(line)
+        print("Found Lines starting with 'centre no :':")
+        # for line in center_lines:
+        #     print(line)
     else:
-        print("No lines starting with 'center' found in the PDF.")
+        print("No lines starting with 'center no :' found in the PDF.")
 elif isinstance(center_lines, str):
     print(center_lines) #print the error message
 else:
     print("An unexpected error occurred.")
+print(f"Number of GCE Centers {len(center_lines)}")
+print(f"Number of Lines in PDF {len(records)}")

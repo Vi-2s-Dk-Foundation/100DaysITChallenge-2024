@@ -8,6 +8,13 @@ def print_first_10_lines_pypdf2(pdf_path):
             for page in pdf_reader.pages:
                 text += page.extract_text()
             lines = text.splitlines()
+            print(f"Number of lines to in PDF: {len(lines)} \n")
+            begin = "Center No :"
+            
+            # Count number of centers
+            centers = sum(1 for item in lines if item.startswith(begin.lower()))
+            print(f"Number of Centers in PDF: {centers} \n")
+            
             for i in range(min(10, len(lines))):  # Print up to 10 lines
                 print(lines[i])
             return "Printed first 10 lines."
@@ -20,4 +27,4 @@ def print_first_10_lines_pypdf2(pdf_path):
         return f"An unexpected error occurred: {e}"
 
 result = print_first_10_lines_pypdf2("2024-GCE-Ordinary-Level-Results.pdf")
-print(result)
+#print(result)

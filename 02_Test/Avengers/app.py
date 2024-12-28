@@ -28,11 +28,13 @@ avengers = [
     "Guardians of the Galaxy"
 ]
 
+word = random.choice(avengers).upper()
+word_display = "_ " * len(word)
+guesses = []
+
 @app.route('/')
 def index():
-    word = random.choice(avengers).upper()
 
-    word_display = ""
     for _ in word:
         word_display += "_ "
     return render_template('index.html', word=word, word_display=word_display)

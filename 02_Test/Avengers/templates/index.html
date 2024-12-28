@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<hr>
+<div class="container text-center">
+
+    <div class="card text-center text-white bg-secondary mb-3">
+        <div class="card-header">Guess #:</div>
+        <div class="card-body">
+        <h4 class="card-title">Your Avenger is:</h4>
+        <p class="card-text">
+            <!-- Display word guessed so far -->
+            {{ word_display }}
+        </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col md-3"></div>
+        <div class="col">
+                <!-- Form goes here -->
+    <form action="/guess" method="post">
+        <div class="card text-black bg-warning mb-3">
+            <div class="card-header">Enter space, - or a letter</div>
+            <div class="card-body">
+              <!-- <h4 class="card-title">Warning card title</h4> -->
+              <p class="card-text">
+                <input type="hidden" name="word" value="{{ word }}"> 
+                <input type="text" id="guess" name="guess" maxlength="1">
+                <button type="submit" class="btn btn-danger">GUESS</button>
+            </p>
+            </div>
+          </div>
+    </form>
+        </div>
+        <div class="col md-3"></div>
+    </div>
+
+</div>
+{% endblock %}

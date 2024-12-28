@@ -1,9 +1,8 @@
 # Project funstions
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request
 import random
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # For session management
 
 avengers = [
     "Iron Man",
@@ -31,19 +30,19 @@ avengers = [
 
 @app.route('/')
 def index():
-    session['word'] = random.choice(avengers).upper()
-    session['guesses'] = ""
-    session['incorrect_guesses'] = 0
-    session['max_guesses'] = 10  # Default difficulty
+    word = random.choice(avengers).upper()
 
-    return render_template('index.html')
+    word_display = ""
+    for _ in word:
+        word_display += "_ "
+    return render_template('index.html', word=word, word_display=word_display)
 
 @app.route('/guess', methods=['POST'])
 def process_guess():
     user_guess = request.form['guess'].upper()
-    word = session['word']
-    guesses = session['guesses']
-    incorrect_guesses = session['incorrect_guesses']
+    word = request.form['word'].upper() 
+    guesses = request.form.getlist('guesses') 
+    incorrect_guesses = len([g for g in guesses if g not in word])
 
     if user_guess in guesses:
         message = "You already guessed that letter."
@@ -53,9 +52,7 @@ def process_guess():
     else:
         message = "Good guess!"
 
-    session['guesses'] += user_guess
-    session['incorrect_guesses'] = incorrect_guesses
-
+    guesses.append(user_guess)
     word_display = ""
     for letter in word:
         if letter in guesses:
@@ -65,13 +62,14 @@ def process_guess():
 
     if all(letter in guesses for letter in word):
         message = f"Congratulations! You guessed the Avenger: {word}"
-        return render_template('result.html', message=message, won=True)
+        return render_template('result.html', message=message, won=True, word=word)
 
-    if incorrect_guesses >= session['max_guesses']:
+    if incorrect_guesses >= 10:  # Adjust max guesses as needed
         message = f"You have exceeded the number of guesses. The Avenger was: {word}"
-        return render_template('result.html', message=message, won=False)
+        return render_template('result.html', message=message, won=False, word=word)
 
-    return render_template('game.html', word_display=word_display, message=message)
+    return render_template('game.html', word_display=word_display, message=message, 
+                           guesses=guesses, word=word) 
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,106 @@
+{
+    "models": [
+      {
+        "name": "User",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "username", "type": "string", "unique": true },
+          { "name": "email", "type": "string", "unique": true },
+          { "name": "password", "type": "string" },
+          { "name": "first_name", "type": "string" },
+          { "name": "last_name", "type": "string" },
+          { "name": "phone_number", "type": "string" },
+          { "name": "role", "type": "string", "choices": ["agent", "buyer", "seller", "landlord"] },
+          { "name": "is_active", "type": "boolean", "default": true },
+          { "name": "date_joined", "type": "datetime", "auto_now_add": true },
+          { "name": "profile_picture", "type": "string", "null": true } 
+        ]
+      },
+      {
+        "name": "Agent", 
+        "fields": [
+          { "name": "user", "type": "one-to-one", "model": "User" }, 
+          { "name": "license_number", "type": "string" },
+          { "name": "specialization", "type": "string", "choices": ["residential", "commercial", "rental"] }, 
+          { "name": "company", "type": "string" } 
+        ]
+      },
+      {
+        "name": "Property",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "title", "type": "string" },
+          { "name": "description", "type": "text" },
+          { "name": "address", "type": "string" },
+          { "name": "city", "type": "string" },
+          { "name": "state", "type": "string" },
+          { "name": "zipcode", "type": "string" },
+          { "name": "price", "type": "float" },
+          { "name": "property_type", "type": "string", "choices": ["house", "apartment", "condo", "townhouse", "land"] },
+          { "name": "bedrooms", "type": "integer" },
+          { "name": "bathrooms", "type": "float" }, 
+          { "name": "square_footage", "type": "integer" },
+          { "name": "lot_size", "type": "float" },
+          { "name": "year_built", "type": "integer" },
+          { "name": "status", "type": "string", "choices": ["active", "pending", "sold", "rented", "withdrawn"] },
+          { "name": "agent", "type": "foreign_key", "model": "Agent" }, 
+          { "name": "created_at", "type": "datetime", "auto_now_add": true },
+          { "name": "updated_at", "type": "datetime", "auto_now": true }
+        ]
+      },
+      {
+        "name": "PropertyImage",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "property", "type": "foreign_key", "model": "Property" },
+          { "name": "image_url", "type": "string" }
+        ]
+      },
+      {
+        "name": "Inquiry",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "property", "type": "foreign_key", "model": "Property" },
+          { "name": "user", "type": "foreign_key", "model": "User" },
+          { "name": "message", "type": "text" },
+          { "name": "timestamp", "type": "datetime" }
+        ]
+      },
+      {
+        "name": "Review",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "user", "type": "foreign_key", "model": "User" },
+          { "name": "agent", "type": "foreign_key", "model": "Agent" },
+          { "name": "rating", "type": "integer", "choices": [1, 2, 3, 4, 5] },
+          { "name": "comment", "type": "text" },
+          { "name": "timestamp", "type": "datetime" }
+        ]
+      },
+      {
+        "name": "SavedSearch",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "user", "type": "foreign_key", "model": "User" },
+          { "name": "city", "type": "string" },
+          { "name": "state", "type": "string" },
+          { "name": "zipcode", "type": "string" },
+          { "name": "min_price", "type": "float" },
+          { "name": "max_price", "type": "float" },
+          { "name": "min_bedrooms", "type": "integer" },
+          { "name": "min_bathrooms", "type": "float" } 
+        ]
+      },
+      {
+        "name": "Appointment",
+        "fields": [
+          { "name": "id", "type": "string", "primary_key": true },
+          { "name": "property", "type": "foreign_key", "model": "Property" },
+          { "name": "user", "type": "foreign_key", "model": "User" },
+          { "name": "agent", "type": "foreign_key", "model": "Agent" },
+          { "name": "datetime", "type": "datetime" },
+          { "name": "status", "type": "string", "choices": ["pending", "confirmed", "cancelled"] } 
+        ]
+      }
+    ]
+  }

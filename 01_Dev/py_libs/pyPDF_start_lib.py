@@ -5,15 +5,15 @@ def extract_center_lines(pdf_path):
         with open(pdf_path, 'rb') as pdf_file:
             pdf_reader = PyPDF2.PdfReader(pdf_file)
             all_lines = []
-            all_lines1 = []
+            all_lines_stripped = []
             for page in pdf_reader.pages:
                 text = page.extract_text()
                 lines = text.splitlines()
                 for line in lines:
-                    all_lines1.append(line.strip())  # Add stripped line - ALL
+                    all_lines_stripped.append(line.strip())  # Add stripped line - ALL
                     if line.lower().startswith("centre no :"):  # Case-insensitive check
                         all_lines.append(line.strip())  # Add stripped line - Centers ONLY
-            return all_lines, all_lines1
+            return all_lines, all_lines_stripped
 
     except FileNotFoundError:
         return "File not found."
@@ -31,7 +31,7 @@ if isinstance(center_lines, list):
         # for line in center_lines:
         #     print(line)
     else:
-        print("No lines starting with 'center no :' found in the PDF.")
+        print("No lines starting with 'centre no :' found in the PDF.")
 elif isinstance(center_lines, str):
     print(center_lines) #print the error message
 else:

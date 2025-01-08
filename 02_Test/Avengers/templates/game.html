@@ -6,18 +6,36 @@
 <div class="container text-center">
 
     <div class="card text-center text-white bg-secondary mb-3">
-        <div class="card-header">Guess #:</div>
+        <div class="card-header">Your Avenger is:</div>
         <div class="card-body">
-        <h4 class="card-title">Your Avenger is:</h4>
-        <p class="card-text">
             <!-- Display word guessed so far -->
-            {{ word_display }}
-        </p>
+            <pre>
+                {{ word_display }}
+            </pre>
         </div>
     </div>
 
     <div class="row">
-        <div class="col md-3"></div>
+        <div class="col md-3">
+            <div id="guess_history">
+                <h3>Guess History</h3>
+                <p># of Incorrect Guesses: {{ incorrect_guesses }}</p>
+                <p>Guesses:</p>
+                <ul>
+                    {% for guess in guesses %}
+                        {% if guess.isalpha() or guess == " " %}
+                            {% if guess in word %}
+                                <li>✓ {{ guess }}</li> 
+                            {% elif guess == ' ' %}
+                                <li>✓ {{ guess }}</li> 
+                            {% else %}
+                                <li>✗ {{ guess }}</li> 
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>        
+        </div>
         <div class="col">
                 <!-- Form goes here -->
     <form action="/guess" method="post">
@@ -27,8 +45,9 @@
               <!-- <h4 class="card-title">Warning card title</h4> -->
               <p class="card-text">
                 <input type="hidden" name="word" value="{{ word }}"> 
-                <input type="hidden" name="guesses" value="{{ ','.join(guesses) }}"> 
-                <input type="text" id="guess" name="guess" maxlength="1">
+                <input type="hidden" name="guesses" value="{{ guesses }}"> 
+                <input type="hidden" name="incorrect_guesses" id="incorrect_guesses" value="{{ incorrect_guesses }}"> 
+                <input type="text" id="user_guess" name="user_guess" maxlength="1">
                 <button type="submit" class="btn btn-danger">GUESS</button>
             </p>
             </div>

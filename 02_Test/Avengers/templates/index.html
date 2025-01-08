@@ -27,7 +27,11 @@
               <!-- <h4 class="card-title">Warning card title</h4> -->
               <p class="card-text">
                 <input type="hidden" name="word" value="{{ word }}"> 
-                <input type="text" id="guess" name="guess" maxlength="1">
+                <input type="hidden" name="guesses" value="{{guesses}}"> 
+                <input type="hidden" name="incorrect_guesses" id="incorrect_guesses" value=0> 
+                <input type="hidden" name="max_guesses" value="{{ max_guesses }}"> 
+                <input type="hidden" name="difficulty" value="{{ difficulty }}"> 
+                <input type="text" name="user_guess" id="user_guess" maxlength="1" placeholder="Enter your guess">
                 <button type="submit" class="btn btn-danger">GUESS</button>
             </p>
             </div>

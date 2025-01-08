@@ -2,16 +2,30 @@
 
 {% block content %}
 <hr>
+<div class="container text-center">
 
-<!-- If win or if lose -->
+    <!-- If win or if lose -->
     {% if won %}
     <h3>You Won!</h3>
-    {{ message }}
-    
+    <button class="btn btn-lg btn-success" type="button">
+        {{ message }}
+    </button>
+
+    <img class="img-fluid rounded mx-auto d-block" width= 30% src="{{ url_for('static', filename='marvel.jpg') }}" alt="">
+    <p>Click <a href="/">HERE</a> to play again!</p>    
     {% else %}
     <h3>You Lost!</h3>
-    {{ message }}
-
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Oh snap!</strong> Change a few things up and try again.
+            <button class="btn btn-lg btn-danger" type="button">
+                {{ message }}
+            </button>
+    </div>
+    <a href="/"><p class="text-danger">Try Again!</p></a>
+    <img class="img-fluid rounded mx-auto d-block" width= 30% src="{{ url_for('static', filename='doomsday.jpg') }}" alt="">
+    
     {% endif %}
-
-{% endblock %}
+    
+</div>
+    {% endblock %}

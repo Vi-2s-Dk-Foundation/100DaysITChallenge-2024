@@ -74,9 +74,6 @@ def process_guess():
 
 @app.route('/reset')
 def reset_game():
-    # Clear session data (if using sessions)
-    # session.clear() 
-
     word = random.choice(avengers).upper()
     word_display = "_ " * len(word)
     guesses = set()

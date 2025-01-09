@@ -68,10 +68,10 @@ def play_game(word, max_guesses):
     remaining_guesses = max_guesses
 
     while remaining_guesses > 0:
+        guess = input("Guess a letter: ").upper() 
         # For Flask, get the guess from the request 
-        # guess = input("Guess a letter: ").upper() 
         # Replace the above line with:
-        guess = request.form.get('guess', '').upper() 
+        # guess = request.form.get('guess', '').upper() 
 
         while not guess.isalpha() or len(guess) != 1:
             # Handle invalid input in your Flask route

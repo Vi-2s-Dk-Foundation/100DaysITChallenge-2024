@@ -35,8 +35,6 @@ guesses = set()
 @app.route('/')
 def index():
     return render_template('index.html', word=word, word_display=word_display)
-    # for _ in word:
-        # word_display += "_ "
 
 @app.route('/guess', methods=['POST'])
 def process_guess():
